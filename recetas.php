@@ -84,7 +84,7 @@ $recetas = $gestorRecetas->obtenerRecetas();
           <textarea id="pasos" name="pasos" rows="5" required></textarea>
         </div>
 
-        <!-- 🔹 ahora abre modal en vez de prompt -->
+        
         <button type="button" onclick="abrirModalProductos()">Agregar producto</button>
 
         <table id="tablaIngredientes">
@@ -155,13 +155,13 @@ $recetas = $gestorRecetas->obtenerRecetas();
     </div>
   </div>
 
-  <!-- 🔹 Nuevo modal para seleccionar productos -->
+  <!-- Modal para seleccionar productos -->
   <div id="modalProductos" class="modal">
       <div class="modal-content" style="max-width: 800px;">
           <span class="close" onclick="cerrarModalProductos()">&times;</span>
           <h3>Seleccionar productos</h3>
           
-          <!-- 🔹 Buscador -->
+          <!-- Buscador -->
           <div class="form-group">
               <input type="text" id="buscadorProductos" placeholder="Buscar producto..." 
                     style="width: 100%; padding: 8px; margin-bottom: 15px;" 

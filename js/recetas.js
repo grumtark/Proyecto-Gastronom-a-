@@ -9,7 +9,7 @@
       document.querySelector("#tablaIngredientes tbody").innerHTML = "";
     }
 
-    // 🔹 Nuevo: abrir y cerrar modal productos
+    // Abrir y cerrar modal productos
     function abrirModalProductos(){ 
         document.getElementById("modalProductos").style.display="block";
         document.getElementById("buscadorProductos").value = ""; // Limpiar buscador
@@ -22,7 +22,7 @@
         let productosSeleccionados = false;
         
         filas.forEach(fila => {
-            if (fila.style.display !== 'none') { // Solo procesar filas visibles
+            if (fila.style.display !== 'none') { 
                 const check = fila.querySelector(".check-producto");
                 const cantidadInput = fila.querySelector(".cantidad");
                 const cantidad = parseFloat(cantidadInput.value);
@@ -104,7 +104,7 @@
       document.getElementById("modalVer").style.display = "block";
     }
 
-    // 🔹 Función para filtrar productos
+    // Filtrar productos
     function filtrarProductos() {
         const buscador = document.getElementById('buscadorProductos');
         const filtro = buscador.value.toLowerCase();
@@ -120,7 +120,7 @@
         });
     }
 
-    // 🔹 Función para marcar automáticamente al ingresar cantidad
+    // Marcar automáticamente al ingresar cantidad
     function marcarSiTieneCantidad(input) {
         const fila = input.closest('tr');
         const check = fila.querySelector('.check-producto');

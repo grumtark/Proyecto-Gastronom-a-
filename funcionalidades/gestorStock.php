@@ -278,18 +278,18 @@ function eliminarCategoria($db, $data) {
     }
 
     try {
-        // Primero marcamos como inactivos los productos relacionados
+        // Marcamos como inactivos los productos relacionados
         $stmt = $db->prepare("UPDATE productos SET estatus = 0 WHERE categoria_id = :categoria_id");
         $stmt->bindParam(':categoria_id', $data['id']);
         $stmt->execute();
         
-        // También marcamos como inactivos sus lotes
+        // Marcamos como inactivos sus lotes
         $stmt = $db->prepare("UPDATE lotes SET estatus = 0 
                              WHERE producto_id IN (SELECT id FROM productos WHERE categoria_id = :categoria_id)");
         $stmt->bindParam(':categoria_id', $data['id']);
         $stmt->execute();
         
-        // Finalmente la categoría
+        // La categoría
         $stmt = $db->prepare("UPDATE categorias SET estatus = 0 WHERE id = :id");
         $stmt->bindParam(':id', $data['id']);
         $stmt->execute();
@@ -312,7 +312,7 @@ function eliminarProducto($db, $data) {
         $stmt->bindParam(':id', $data['id']);
         $stmt->execute();
         
-        // También marcamos como inactivos sus lotes
+        // Marcamos como inactivos sus lotes
         $stmt = $db->prepare("UPDATE lotes SET estatus = 0 WHERE producto_id = :producto_id");
         $stmt->bindParam(':producto_id', $data['id']);
         $stmt->execute();

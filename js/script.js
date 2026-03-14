@@ -29,7 +29,7 @@ function mostrarNotificacion(mensaje, tipo = 'success') {
   });
 }
 
-// Manejo de errores AJAX global
+// Manejo de errores AJAX 
 $(document).ajaxError(function(event, jqxhr, settings, thrownError) {
   mostrarNotificacion('Error en la solicitud: ' + thrownError, 'error');
 });

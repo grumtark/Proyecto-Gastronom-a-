@@ -72,11 +72,11 @@ class GestorPresupuestos {
     }
 
     public function eliminarPresupuesto($presupuestoId) {
-        // Primero eliminar las recetas asociadas
+        // Pliminar las recetas asociadas
         $stmt = $this->db->prepare("DELETE FROM presupuesto_recetas WHERE presupuesto_id = :id");
         $stmt->execute([':id' => $presupuestoId]);
         
-        // Luego eliminar el presupuesto
+        // Eliminar el presupuesto
         $stmt = $this->db->prepare("DELETE FROM presupuestos WHERE id = :id");
         return $stmt->execute([':id' => $presupuestoId]);
     }
@@ -112,14 +112,14 @@ class GestorPresupuestos {
                     FROM receta_ingredientes ri
                     WHERE ri.receta_id = :receta_id
                 ");
-                $stmt->execute([':receta_id' => $receta['receta_id']]); // CORRECCIÓN: sin comilla extra
+                $stmt->execute([':receta_id' => $receta['receta_id']]);
                 $ingredientes = $stmt->fetchAll();
                 
                 // Descontar cada ingrediente multiplicado por la cantidad de la receta
                 foreach ($ingredientes as $ingrediente) {
                     $cantidadTotal = $ingrediente['cantidad'] * $receta['cantidad'];
                     
-                    // Descontar de los lotes (método FIFO)
+                    // Descontar de los lotes 
                     $stmt = $this->db->prepare("
                         SELECT id, cantidad 
                         FROM lotes 
@@ -169,7 +169,7 @@ class GestorPresupuestos {
         }
     }
 
-    // 🆕 MÉTODO FALTANTE - Para obtener productos de presupuestos antiguos (compatibilidad)
+   
     public function obtenerProductosPresupuesto($presupuestoId) {
         try {
             $stmt = $this->db->prepare("

@@ -23,7 +23,7 @@ function verificarAlertas() {
         success: function(data) {
             if (data.error) {
                 console.error('Error del servidor:', data.error);
-                // Mostrar mensaje genérico sin detalles técnicos al usuario
+
                 mostrarMensajeError('No se pudieron cargar las alertas. Por favor intente más tarde.');
             } else {
                 mostrarAlertas(data);
@@ -95,7 +95,7 @@ function crearAlertaStock(items) {
     const $lista = $alert.find('.alert-items');
     
     items.forEach(item => {
-        // Verificación segura de propiedades
+        // Verificación de propiedades
         const producto = item.producto || 'Producto desconocido';
         const categoria = item.categoria || 'Sin categoría';
         const stock = item.stock_actual !== undefined ? item.stock_actual : 'N/A';
