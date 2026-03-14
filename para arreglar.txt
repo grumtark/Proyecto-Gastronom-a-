@@ -1,0 +1,13 @@
+Inicio:
+-Dejar cantidad de registros fijo (25) de la tabla.
+-Centrar buscar y anterior siguiente de la tabla.
+-Ocultar mostrar de la tabla.
+
+Stock de productos y Stock de utensilios:
+-Centrar botones
+-Tabla igual al inicio.
+-Encuadrar el agregar stock y Modificar utensilios para que tengan un fondo como presupuesto.
+
+Presupuesto y receta:
+-Centrar botones.
+-Achicar tamaño del cuadro para que entre otro a la derecha.
